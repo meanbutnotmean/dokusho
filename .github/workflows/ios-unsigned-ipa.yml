@@ -2,13 +2,15 @@ name: Build unsigned iOS IPA
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build:
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: npm
@@ -29,7 +31,7 @@ jobs:
           cp -R build/DerivedData/Build/Products/Release-iphoneos/Dokusho.app build/ipa/Payload/
           cd build/ipa
           zip -r ../../Dokusho-unsigned.ipa Payload
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: Dokusho-unsigned-ipa
           path: Dokusho-unsigned.ipa
