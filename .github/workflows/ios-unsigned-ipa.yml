@@ -24,6 +24,7 @@ jobs:
           -destination 'generic/platform=iOS'
           -derivedDataPath build/DerivedData
           CODE_SIGNING_ALLOWED=NO
+          VALIDATE_EMBEDDED_BINARY=NO
           build
       - name: Package unsigned IPA
         run: |
