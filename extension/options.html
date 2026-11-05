@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Từ điển Dokusho</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="settings">
+    <header><div><h1>Dokusho</h1><small>Cài đặt từ điển</small></div></header>
+    <section class="settings-card preferences">
+      <div><h2>Cách mở khung tra cứu</h2><p>Chọn thao tác để hiện nghĩa ngay trên trang đang đọc.</p></div>
+      <label class="setting-toggle"><span><strong>Bôi đen văn bản</strong><small>Tự tra sau khi chọn một từ tiếng Nhật</small></span><input id="selection-scan" type="checkbox" /></label>
+      <label class="setting-toggle"><span><strong>Máy tính</strong><small>Giữ Shift và rê chuột trên từ tiếng Nhật</small></span><input id="desktop-shift" type="checkbox" /></label>
+      <label class="setting-toggle"><span><strong>Màn hình cảm ứng</strong><small>Chạm vào từ tiếng Nhật để tra</small></span><input id="touch-tap" type="checkbox" /></label>
+    </section>
+    <section class="settings-card">
+      <h2>Nhập từ điển</h2>
+      <p>Chọn file ZIP của Yomitan. Dữ liệu từ và Kanji sẽ được lưu trên thiết bị này.</p>
+      <label class="file-picker">＋ &nbsp; Chọn file ZIP<input id="archive" type="file" accept=".zip,application/zip" /></label>
+      <progress id="progress" hidden></progress>
+      <p id="status" role="status"></p>
+    </section>
+    <section class="settings-card">
+      <h2>Từ điển đã cài</h2>
+      <ul id="dictionary-list"></ul>
+    </section>
+    <script src="db.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

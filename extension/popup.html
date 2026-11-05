@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dokusho</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="popup">
+    <header><strong>Dokusho</strong><label class="scan-toggle"><span id="scan-label">Quét trang</span><input id="scan-enabled" type="checkbox" role="switch" aria-label="Bật hoặc tắt quét trang" /></label><a href="options.html" target="_blank">Từ điển</a></header>
+    <form id="search-form"><input id="query" placeholder="Chọn một từ hoặc nhập từ cần tra" autocomplete="off" /><button>Tra từ</button></form>
+    <main id="results" aria-live="polite"></main>
+    <script src="db.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

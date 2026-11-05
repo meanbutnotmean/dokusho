@@ -1,0 +1,36 @@
+name: Build unsigned iOS IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build app for iOS device
+        run: >-
+          xcodebuild
+          -project ios/Dokusho.xcodeproj
+          -scheme Dokusho
+          -configuration Release
+          -destination 'generic/platform=iOS'
+          -derivedDataPath build/DerivedData
+          CODE_SIGNING_ALLOWED=NO
+          build
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p build/ipa/Payload
+          cp -R build/DerivedData/Build/Products/Release-iphoneos/Dokusho.app build/ipa/Payload/
+          cd build/ipa
+          zip -r ../../Dokusho-unsigned.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Dokusho-unsigned-ipa
+          path: Dokusho-unsigned.ipa
+          retention-days: 7

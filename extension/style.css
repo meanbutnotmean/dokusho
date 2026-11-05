@@ -1,0 +1,41 @@
+:root { color-scheme: light dark; font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { margin: 0; color: CanvasText; background: Canvas; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid color-mix(in srgb, CanvasText 20%, transparent); padding: 0.8rem 1rem; }
+h1 { margin: 0; font-size: 1.4rem; }
+.popup { width: min(420px, 94vw); min-height: 200px; }
+.scan-toggle { display: inline-flex; align-items: center; gap: .65rem; margin-left: auto; font-size: .85rem; cursor: pointer; }
+.scan-toggle input { appearance: none; flex: initial; width: 2.7rem; height: 1.55rem; padding: 0; border: 1px solid #8888; border-radius: 999px; background: #72757b; cursor: pointer; transition: background .16s ease; }
+.scan-toggle input::before { content: ""; display: block; width: 1.15rem; height: 1.15rem; margin: .14rem; border-radius: 50%; background: white; transition: transform .16s ease; }
+.scan-toggle input:checked { background: #2878df; border-color: #2878df; }
+.scan-toggle input:checked::before { transform: translateX(1.13rem); }
+.popup form { display: flex; gap: .5rem; padding: .8rem; }
+input { min-width: 0; flex: 1; padding: .65rem; border: 1px solid #8888; border-radius: .5rem; font: inherit; }
+button, .file-picker { padding: .55rem .8rem; border: 0; border-radius: .5rem; background: #2878df; color: white; font: inherit; cursor: pointer; }
+#results { padding: 0 .8rem .8rem; }
+article { border-top: 1px solid #8885; padding: .75rem 0; overflow-wrap: anywhere; }
+article h2 { margin: 0 0 .4rem; font-size: 1.05rem; }
+.definition img { max-width: 100%; }
+article small { display: block; opacity: .65; margin-top: .5rem; }
+.settings { max-width: 760px; margin: 2rem auto; padding: 0 1rem 3rem; }
+.settings header { padding: 0 0 1rem; margin-bottom: 1.2rem; }
+.settings header h1 { letter-spacing: -.03em; font-size: 1.8rem; }
+.settings header small { opacity: .65; }
+.settings > p { margin: 1rem 0; }
+.settings-card { margin: 1rem 0; padding: 1.1rem 1.2rem; border: 1px solid #8884; border-radius: .9rem; background: color-mix(in srgb, CanvasText 4%, Canvas); box-shadow: 0 5px 20px #0001; }
+.settings-card h2 { margin: 0 0 .3rem; font-size: 1.1rem; }
+.settings-card p { opacity: .72; margin: .35rem 0 .9rem; }
+.preferences { display: grid; grid-template-columns: 1fr; gap: .5rem 1rem; align-items: center; }
+.preferences > div { grid-column: 1 / -1; }
+.setting-toggle { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 0; border-top: 1px solid #8883; cursor: pointer; }
+.setting-toggle span { display: grid; gap: .25rem; }
+.setting-toggle small { opacity: .7; }
+.setting-toggle input { flex: initial; width: 1.1rem; height: 1.1rem; accent-color: #2878df; }
+.preferences select { padding: .55rem; border: 1px solid #8888; border-radius: .5rem; font: inherit; background: Canvas; color: CanvasText; }
+.file-picker { display: inline-block; background: #246fd0; font-weight: 600; }
+.file-picker input { display: none; }
+progress { display: block; margin-top: .8rem; width: 100%; }
+li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid #8883; }
+li:last-child { border-bottom: 0; }
+.order-controls { display: inline-flex; gap: .3rem; margin-left: auto; }
+.order-controls button { min-width: 2rem; padding: .25rem .45rem; background: color-mix(in srgb, CanvasText 12%, Canvas); color: CanvasText; }
+.order-controls button:disabled { opacity: .35; cursor: default; }

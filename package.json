@@ -1,0 +1,13 @@
+{
+  "name": "dokusho",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MIT-licensed Safari dictionary extension with Yomitan ZIP import",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2"
+  },
+  "devDependencies": {}
+}
