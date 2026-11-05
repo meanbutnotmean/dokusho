@@ -15,10 +15,6 @@
 		A30000000000000000000001 /* PBXContainerItemProxy */ = {isa = PBXContainerItemProxy; containerPortal = A40000000000000000000001 /* Project object */; proxyType = 1; remoteGlobalIDString = A50000000000000000000002; remoteInfo = DokushoExtension; };
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		A60000000000000000000001 /* Embed App Extensions */ = {isa = PBXCopyFilesBuildPhase; buildActionMask = 2147483647; dstPath = ""; dstSubfolderSpec = 13; files = (A10000000000000000000003 /* DokushoExtension.appex in Embed App Extensions */, ); name = "Embed App Extensions"; runOnlyForDeploymentPostprocessing = 0; };
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		A20000000000000000000001 /* DokushoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokushoApp.swift; sourceTree = "<group>"; };
 		A20000000000000000000002 /* App Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +52,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		AC000000000000000000001 /* Build WebExtension resources */ = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (); inputPaths = ("$(SRCROOT)/../extension/manifest.json", "$(SRCROOT)/../extension/options.js", ); name = "Build WebExtension resources"; outputPaths = ("$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Resources/manifest.json", ); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/sh; shellScript = "set -eu\ncd \"$SRCROOT/..\"\nnpm run build\nmkdir -p \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/Resources\"\ncp -R \"$SRCROOT/../dist/safari/.\" \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/Resources/\"\n"; };
+		A60000000000000000000001 /* Embed App Extensions */ = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (); name = "Embed App Extensions"; outputPaths = ("$(TARGET_BUILD_DIR)/$(WRAPPER_NAME)/PlugIns/DokushoExtension.appex", ); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/sh; shellScript = "set -eu\nEXTENSION=\"$BUILT_PRODUCTS_DIR/DokushoExtension.appex\"\nDEST=\"$TARGET_BUILD_DIR/$WRAPPER_NAME/PlugIns\"\nmkdir -p \"$DEST\"\nrm -rf \"$DEST/DokushoExtension.appex\"\ncp -R \"$EXTENSION\" \"$DEST/\"\n"; };
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
