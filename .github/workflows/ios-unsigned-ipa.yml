@@ -25,6 +25,13 @@ jobs:
           -derivedDataPath build/DerivedData
           CODE_SIGNING_ALLOWED=NO
           build
+      - name: Verify app bundle before packaging
+        run: |
+          APP="build/DerivedData/Build/Products/Release-iphoneos/Dokusho.app"
+          test -x "$APP/Dokusho"
+          test -f "$APP/Assets.car"
+          /usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$APP/Info.plist"
+          /usr/libexec/PlistBuddy -c 'Print :CFBundleIconName' "$APP/Info.plist"
       - name: Package unsigned IPA
         run: |
           mkdir -p build/ipa/Payload
